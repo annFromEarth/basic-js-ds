@@ -27,34 +27,24 @@ function removeKFromList(l, k) {
   let current = l;
   let prev = null;
 
-  while (current) {
-    if (current.value === k) {
-      if (prev) {
-        prev.next = current.next;
+
+  if (l.value === k) {
+    l = l.next;
+  }
+
+  while (current.next) {
+    if (current.next.value === k) {
+        prev = current.next;
+        current.next = current.next.next;
       } else {
-        current.value = null;
-        current.next = null;
+        current = current.next;
       }
-    }
-    if (current.value !== k) {
-      // console.log(current.value);
-      prev = current;
+
     }
 
-    current = current.next;
-  }
   // console.log(l);
   return l;
 }
-
-
-      // return l.next;
-
-    // if (list[i].value === k) {
-    //   list[i] 
-    // }
-  
-
 
 
 module.exports = {
